@@ -4,6 +4,12 @@ import { useState } from 'react';
 
 function App() {
   let [body,setBody] = useState(['hello.','hi','My name is Tiago'])
+  function text_add(text) {
+    let new_body = [...body]
+    new_body.push(text)
+    setBody (new_body)
+
+  }
   return (
     <div className="App">
       <p className="text_output">
@@ -13,11 +19,12 @@ function App() {
           )
         })}        
       </p>
+      <div className='input_wrap'>
+        <span className='input_indicator'>{'> '} </span>
       <input type='text' className="text_input"/>
+      </div>
       <button onClick={()=>{
-        let new_body = [...body]
-        new_body.push('This is a great text.')
-        setBody (new_body)
+        text_add('this is a great text!!')
       }}>click me!</button>
     </div>
   );
